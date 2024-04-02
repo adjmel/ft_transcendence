@@ -1,0 +1,12 @@
+{
+    "name": "ft_transcendence",
+    "version": "1.0.0",
+    "description": "Description de votre projet",
+    "main": "index.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "keywords": [],
+    "author": "madjogou",
+    "license": "MIT"
+}

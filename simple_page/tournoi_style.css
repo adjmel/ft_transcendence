@@ -1,0 +1,15 @@
+#btn-participer{
+    background-color:blue;
+    width: 70px;
+    height: 20px;
+}
+#btn-launch-game
+{
+    width: 100px;
+    height: 40px;
+    background-color: blueviolet;
+}
+#player-list
+{
+    list-style-type: none;
+}

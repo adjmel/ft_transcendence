@@ -1,0 +1,50 @@
+
+<!-- Formulaire HTML -->
+<form id="loginForm">
+    <label for="username">Login du joueur:</label>
+    <input type="text" id="username" name="user_name" />
+    <button id="btn-participer" type="submit">Participer</button>
+</form>
+
+<!-- Script JavaScript a mettre dans un fichier a part pour securité -->
+<script>
+    // Ajoute un gestionnaire d'événement pour le soumission du formulaire
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        // Récupère la valeur du champ de nom d'utilisateur
+        var nomUtilisateur = document.getElementById('username').value;
+        
+        // Valide le nom d'utilisateur
+        if (!validerNomUtilisateur(nomUtilisateur)) {
+            // Empêche l'envoi du formulaire si la validation échoue
+            event.preventDefault();
+            // Affiche un message d'erreur à l'utilisateur
+            alert("The username is invalid. Please do not use special characters.");
+        }
+    });
+
+    // Fonction pour valider le nom d'utilisateur côté client
+    function validerNomUtilisateur(nom) {
+        // Expression régulière pour autoriser seulement les lettres, les chiffres, les tirets et les underscores
+        var regex = /^[a-zA-Z0-9_\-]+$/;
+        // Vérifie si le nom d'utilisateur correspond à l'expression régulière
+        return regex.test(nom);
+    }
+</script>
+
+
+<!-- Voici ce que chaque partie du code fait :
+
+1. Le formulaire HTML contient un champ de texte pour que l'utilisateur puisse entrer son nom d'utilisateur et un bouton "Participer" pour soumettre le formulaire.
+
+2. Le script JavaScript ajoute un gestionnaire d'événement au formulaire. Lorsque le formulaire est soumis, cette fonction est déclenchée.
+
+3. Dans la fonction du gestionnaire d'événement :
+   - Nous récupérons la valeur du champ de nom d'utilisateur.
+   - Nous utilisons une fonction `validerNomUtilisateur()` pour valider le nom d'utilisateur.
+   - Si la validation échoue, nous empêchons l'envoi du formulaire et affichons un message d'erreur à l'utilisateur.
+
+4. La fonction `validerNomUtilisateur()` utilise une expression régulière pour vérifier si le nom d'utilisateur contient uniquement des lettres, des chiffres, des tirets et des underscores. Elle renvoie true si le nom est valide, sinon false.
+
+En utilisant ce code, vous pouvez valider le nom d'utilisateur côté client avant de l'envoyer au serveur, ce qui contribue à renforcer la sécurité de votre formulaire. N'oubliez pas de toujours effectuer une validation supplémentaire côté serveur pour garantir la sécurité de vos données. -->
+
+

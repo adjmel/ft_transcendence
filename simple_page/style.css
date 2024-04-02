@@ -1,0 +1,17 @@
+/* Importation de la police Google Fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Hubballi&family=Megrim&family=VT323&display=swap'); */
+
+/* Style global */
+body 
+{
+    margin: 0;
+    padding: 0;
+    height: calc(100vh - 50px); /*hauteur du conteneur*/
+    background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+}
+
+html
+{
+    scrollbar-color: rgb(199, 187, 14) white;
+}
+
