@@ -1,14 +1,15 @@
-<!-- Lancer le projet : -->
+## Lancer le projet :
 docker-compose up --build
 
-<!-- Sujet :  -->
-"Le frontend doit être développé en utilisant du Javascript natif (original sans
+## Sujet :
+**"Le frontend doit être développé en utilisant du Javascript natif (original sans
 framework ni extensions). Toutefois, ce pré-requis peut être modifié par le Module
-Frontend"
+Frontend"**
 
-"Votre site web doit être protégé contre les injections SQL/XSS."
 
-<!-- Securité :  -->
+## Securité :
+**"Votre site web doit être protégé contre les injections SQL/XSS."**
+
 "Éviter les attaques XSS (Cross-Site Scripting) consiste à s'assurer que le contenu que vous affichez dans votre application web ne peut pas être interprété comme du code exécutable, notamment du code JavaScript malveillant, injecté par un attaquant."
 
 1) Génération de l'empreinte de hachage pour eviter les injections XSS grace au site ->
