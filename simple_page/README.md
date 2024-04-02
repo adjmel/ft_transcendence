@@ -12,7 +12,7 @@ Frontend"**
 
 "Éviter les attaques XSS (Cross-Site Scripting) consiste à s'assurer que le contenu que vous affichez dans votre application web ne peut pas être interprété comme du code exécutable, notamment du code JavaScript malveillant, injecté par un attaquant."
 
-1) Specification d'un Content-Type
+1) Specification d'un Content-Type :
 "Spécifier un Content-Type approprié contribue à réduire le risque qu’une ressource
 soit interprétée de manière inattendue et exploitée par un attaquant."
 source : https://cyber.gouv.fr/publications/securiser-un-site-web
