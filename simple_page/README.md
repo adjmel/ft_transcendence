@@ -8,9 +8,9 @@ Frontend"**
 
 
 ## Cybersecurité :
-**"Votre site web doit être protégé contre les injections SQL/XSS."**
+### **"Votre site web doit être protégé contre les injections SQL/XSS."**
 
-### "Éviter les attaques XSS (Cross-Site Scripting) consiste à s'assurer que le contenu que vous affichez dans votre application web ne peut pas être interprété comme du code exécutable, notamment du code JavaScript malveillant, injecté par un attaquant."
+"Éviter les attaques XSS (Cross-Site Scripting) consiste à s'assurer que le contenu que vous affichez dans votre application web ne peut pas être interprété comme du code exécutable, notamment du code JavaScript malveillant, injecté par un attaquant."
 
 1) Specification d'un Content-Type :
 "Spécifier un Content-Type approprié contribue à réduire le risque qu’une ressource
