@@ -2,7 +2,7 @@
 const http = require('http'); // Module HTTP de Node.js pour créer le serveur
 const fs = require('fs'); // Module FileSystem pour lire les fichiers
 const path = require('path'); // Module Path pour travailler avec les chemins de fichiers
-const port = 3000; // Numéro de port sur lequel le serveur écoutera
+const port = 8080; // Numéro de port sur lequel le serveur écoutera
 
 
 // Création du serveur HTTP
@@ -62,5 +62,5 @@ const server = http.createServer(function(req, res)
 // Lancement du serveur et écoute des connexions sur le port spécifié
 server.listen(port, function() 
 {
-    console.log('Server running at http://localhost:3000/');
+    console.log('Server running at http://localhost:8080/');
 });
