@@ -26,5 +26,5 @@ SRI (Subresource Integrity) est une fonctionnalité de sécurité qui permet de 
 Ici pour le lien Google font dans le CSS : ```<link rel="stylesheet" href="style.css" integrity="hdUUw/jGEFoxsMHxQkzVy7NG5d8MQ7mLd2udXPczZ8U=" crossorigin="anonymous"><!--lien fichier css-->```
 
 Test a rentrer dans le formulaire 
-<script>alert('XSS');</script>
+```<script>alert('XSS');</script>```
 
