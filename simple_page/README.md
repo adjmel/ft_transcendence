@@ -7,7 +7,7 @@ framework ni extensions). Toutefois, ce pré-requis peut être modifié par le M
 Frontend"**
 
 
-## Securité :
+## Cybersecurité :
 **"Votre site web doit être protégé contre les injections SQL/XSS."**
 
 "Éviter les attaques XSS (Cross-Site Scripting) consiste à s'assurer que le contenu que vous affichez dans votre application web ne peut pas être interprété comme du code exécutable, notamment du code JavaScript malveillant, injecté par un attaquant."
