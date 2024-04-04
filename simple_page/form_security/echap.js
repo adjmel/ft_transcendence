@@ -1,4 +1,4 @@
-async function printUsername(username) {
+/*async function printUsername(username) {
     try {
         // Utilisation de encodeURIComponent pour échapper le contenu non fiable (contexte URL)
         const res = await fetch('https://my-api.com/user/' + encodeURIComponent(username));
@@ -10,4 +10,4 @@ async function printUsername(username) {
     } catch (err) {
         // Gestion de l'erreur à implémenter
     }
-}
+}*/
