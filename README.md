@@ -1,7 +1,7 @@
 # Transcendence
 
 ## Overview
-**Transcendence**, a web-based multiplayer Pong game designed for real-time competition! This project provides an engaging user interface and seamless gameplay for you and your friends. The website offers various modules and features that enhance the traditional Pong experience.
+**Transcendence** is a web-based multiplayer Pong game designed for real-time competition! This project provides an engaging user interface and seamless gameplay for you and your friends. The website offers various modules and features that enhance the traditional Pong experience.
 
 ## Features
 ### Core Features
