@@ -1,0 +1,96 @@
+#next-btn{
+    margin: 0 10px;
+    padding: 10px 20px;
+    max-width: 70%;
+    font-size: 1em;
+    background-color: rgb(254, 254, 254);
+    color: rgb(8, 8, 8);
+    font-size: 24px;
+    transition: background-color 0.5s;
+}
+
+#next-btn:hover {
+    background-color:  #933b67;
+    color: white;
+}
+
+button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    max-width: 70%;
+    font-size: 1em;
+    background-color: rgb(254, 254, 254);
+    color: rgb(8, 8, 8);
+    font-size: 24px;
+    transition: background-color 0.5s;
+}
+
+button:hover {
+    background-color:  #933b67;
+    color: white;
+}
+
+#lobby {
+    flex: 1; /* Cette propriété indique que l'élément #lobby doit prendre tout l'espace disponible dans son conteneur flex parent. Il va s'étendre pour remplir l'espace restant. */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%; /* Pour réduire la largeur */
+    margin: -100px auto 0 auto; /* Pour centrer horizontalement et ajouter un espace en haut */
+}
+
+.row {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#game_result_pannel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+#jeu-div {
+    text-align: center;
+}
+
+#new {
+    position: relative;
+    top: 170px; 
+    margin: 20px;
+    padding: 20px;  /* pour les boutons */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #0b0b0b;
+}
+
+.jeu-rules {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.highlight {
+    background-color: #933b67;
+    color: #fff; /* Texte blanc pour un meilleur contraste */
+    padding: 2px 8px; /* Augmentation du padding horizontal */
+    font-size: 34px;
+    border-radius: 4px; /* Coins arrondis pour un effet plus doux */
+  }
+
+.inline-block {
+    display: inline-block;
+    margin-right: 50px; /* Ajustez la valeur pour l'espacement désiré */
+  }
+
+
+
+
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Your Website Title{% endblock %}</title>
+    <!-- liens CSS et JavaScript ici -->
+    {% load static %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <!-- <script src="{% static 'load_html.js' %}" defer></script> -->
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <!-- <script src="{% static 'load_pages.js' %}" defer></script> -->
+    <!-- futur css et bootstrap de la 2FA -->
+</head>
+
+<body>
+    <!-- Le contenu dynamique sera remplacé ici -->
+    <div id="content">
+        {% block content %}   <!-- Le contenu de base de chaque page html est charge ici -->
+         {% endblock %}
+    </div>
+</body>
+</html>

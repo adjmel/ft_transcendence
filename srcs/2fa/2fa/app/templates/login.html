@@ -1,0 +1,41 @@
+{% extends "base.html" %} <!-- Extension du modèle de base (base.html) -->
+{% block title %}Login{% endblock %} <!-- Définition du titre de la page -->
+{% block content %} <!-- Début du bloc de contenu -->
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <title>Login</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-custom">
+      <div class="image-container text-center">
+        <img src="{% static 'cadenas-ferme.png' %}" style="width: 50px; height: auto;">
+      </div> 
+      <form method="post" id="login-form"> <!-- Début du formulaire avec la méthode POST -->
+      {% csrf_token %} <!-- Ajout du jeton CSRF pour protéger le formulaire contre les attaques CSRF -->
+      {{ form.as_p }} <!-- Affichage du formulaire de connexion avec le format paragraphe (as_p) -->
+      <div class="button-container">
+        <button id="btn_signup" type="submit" href="#" class="btn btn-primary btn-block btn-max-width" onclick="event.preventDefault()">Login</button>
+      </div><!-- Bouton pour soumettre le formulaire de connexion -->
+      </form> <!-- Fin du formulaire -->
+      <!-- <p>Don't have an account ? <a id="signup" href="#" onclick="event.preventDefault();fetchSignup();">Sign up</a></p>Lien pour rediriger vers la page d'inscription (signup) -->
+      <div class="container-signup">
+        <p>Don't have an account ? </p>
+        <a id="signup" href="#" onclick="event.preventDefault()">Sign up</a><!-- Lien pour rediriger vers la page d'inscription (signup) -->  
+      </div>
+    </div>
+    </div>
+  </div>
+</body>
+</html>
+{% endblock %} <!-- Fin du bloc de contenu -->

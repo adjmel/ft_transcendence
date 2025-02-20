@@ -1,0 +1,54 @@
+{% load static %}
+<div id="matchMaking">
+    <title>Tournoi</title>
+
+    <link rel="stylesheet" href="{% static 'matchmaking.css' %}">
+
+    <div class="round">
+        <div class="match">
+            <p id="result_text">Result: </p>
+            <div class="match">
+                <div id="winner">🎉 🥇 🎉</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="round">
+        <div class="match">
+            <p id="second-match">Second match: </p>
+            <div class="match">
+                <div id="winner1">👤</div>
+                <div class="vs">vs</div>
+                <div id="winner2">👤</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="round">
+        <div class="match">
+            <div class="match">
+                <div id="1st-player">👤</div>
+                <div class="vs">vs</div>
+                <div id="2nd-player">👤</div>
+            </div>
+            <p id="first-match">: First match : </p>
+            <div class="match">
+                <div id="3rd-player">👤</div>
+                <div class="vs">vs</div>
+                <div id="4th-player">👤</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p id="matchPlayer1"></p>
+        </div>
+        <div class="col">
+            <button id="start-next-match">Start the match</button>
+        </div>
+        <div class="col">
+            <p id="matchPlayer2"></p>
+        </div>
+    </div>
+    <button id="end-btn" style="display:none">Done</button>
+</div>

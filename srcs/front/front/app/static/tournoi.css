@@ -1,0 +1,79 @@
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+#tournament {
+    text-align: center;
+}
+
+#div-tournoi {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #0b0b0b;
+}
+
+h1 {
+    margin: 10px 0;
+    font-size: 70px;
+}
+
+#player-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#username {
+    margin: 10px 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#join-btn, #btn-launch-game {
+    margin: 0 10px;
+    padding: 10px 20px;
+    max-width: 70%;
+    font-size: 1em;
+    background-color: rgb(254, 254, 254);
+    color: rgb(8, 8, 8);
+    font-size: 24px;
+    transition: background-color 0.5s;
+    margin: 0 auto;
+}
+
+#join-btn:hover, #btn-launch-game:hover {
+    background-color:  #933b67;
+    color: white;
+}
+
+#div-jeu {
+    margin-top: 20px;
+}
+
+.tournament-rules {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.highlight {
+    background-color: #933b67;
+    color: #fff; /* Texte blanc pour un meilleur contraste */
+    padding: 2px 8px; /* Augmentation du padding horizontal */
+    font-size: 34px;
+    border-radius: 4px; /* Coins arrondis pour un effet plus doux */
+  }
+
+.inline-block {
+    display: inline-block;
+    margin-right: 50px; /* Ajustez la valeur pour l'espacement désiré */
+  }

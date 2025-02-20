@@ -1,0 +1,25 @@
+{% load static %}
+<div class="content">
+  <link rel="stylesheet" href="{% static 'tournoi.css' %}" />
+  <h1 id="title-tournoi">Tournament</h1>
+  <div id="tournament">
+    <div id="div-tournoi">
+      <!-- <h2 id="title-part">Participants au tournoi</h2> -->
+      <div class="tournament-rules">
+        <p class="highlight">The rules</p>
+        <p><u>4 players, 2 matchs, 1 duel, 1 winner 🏆</u></p>
+        <p>5 points per match</p>
+        <p class="inline-block">👤 : S ⬇️ | W ⬆️</p>
+        <p class="inline-block">👤 : L ⬇️ | P ⬆️</p>
+        <p>Good luck y'all !</p>
+      </div>
+      <label id="login-player">Pseudo
+        <input type="text" id="usernamePlayer" name="user_name" />
+      </label>
+      <button id="join-btn">Participate</button>
+      <button id="btn-launch-game" style="display:none">Start the tournament</button>
+      <ul class="list-group list-group-horizontal" id="player-list"></ul>
+    </div>
+  </div>
+  <div id="div-jeu"></div>
+</div>

@@ -1,0 +1,6 @@
+GAME_STATS_POSTGRES_DB=trans_db
+GAME_STATS_POSTGRES_USER=trans_user
+GAME_STATS_POSTGRES_PASSWORD=trans_pass
+GAME_STATS_POSTGRES_HOST=postgres_game_stats
+GAME_STATS_POSTGRES_PORT=5432
+SECRET_KEY='django-insecure-&+5abj$q_=yivbr#_3e6jg2%o7&yi7a3(egvewt4e%j*wq5h^7'

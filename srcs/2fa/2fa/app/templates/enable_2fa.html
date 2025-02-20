@@ -1,0 +1,42 @@
+<!-- créez un modèle HTML ( enable_2fa.html) pour afficher le 
+formulaire de configuration 2FA. Ce modèle doit inclure des 
+champs permettant aux utilisateurs de configurer 2FA, comme 
+scanner un code QR ou saisir un code de vérification à partir 
+de leur application d'authentification. -->
+
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'enable_2fa.css' %}">
+    <!-- <p class="center-text">Enable Two-Factor Authentication (2FA)</p>
+    <p class="center-text">Scan the QR code with the Google authenticator app below to enable 2FA for your account:</p> -->
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-custom">
+    <p class="center-text">Scan the QR code with the Google authenticator app below to enable 2FA for your account</p>
+    <div class="image-container text-center">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data={{ qr_code_url }}" alt="QR Code">
+    </div>
+    <form method="post" id="enable-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="button-container">
+      <button type="submit" class="btn btn-primary btn-block btn-max-width" href="#"  onclick="event.preventDefault();sendDataEnable();">Enable 2FA</button>
+    </div>
+    </form>
+    </div>
+  </div>
+</body>
+</html>
+{% endblock %}

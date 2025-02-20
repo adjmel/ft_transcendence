@@ -1,0 +1,6 @@
+2FA_POSTGRES_DB=trans_db
+2FA_POSTGRES_USER=trans_user
+2FA_POSTGRES_PASSWORD=trans_pass
+2FA_POSTGRES_HOST=postgres_2fa
+2FA_POSTGRES_PORT=5432
+SECRET_KEY='django-insecure-1vp)x=!9o_(35+s=s%kgu9sfh^!w(ds)#$*j8!sbuo!zp8+t9k'

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>World of Pong</title>
+    {% load static %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta property="og:title" content="Monde de Pong">
+    <meta name="description" content="Ici, vous pouvez jouer au pong contre une IA raisonnable, \
+        jouez contre un ami ou défiez un groupe de vos amis pour déterminer \
+        qui est le meilleur joueur de pong dans un tournoi épique.">
+    <meta property="og:image" content="{% static 'pong.gif' %}">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Honk&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+</head>
+
+<!-- <body> -->
+
+<body class="bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black " id="navbar">
+        <div class="container-fluid ">
+            <a id="brand" class="navbar-brand" href="#" onclick="event.preventDefault();">World of Pong</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav flex-fill d-flex justify-content-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" id="match_link" href="#" onclick="event.preventDefault();">Match</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item me-auto">
+                        <a id="username" class="nav-link" type="submit" href="#" onclick="event.preventDefault();">{{
+                            username }}</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item me-auto">
+                        <a id="login" class="nav-link" type="submit" href="#">Login/Sign up</a>
+                    </li>
+                    {% endif %}
+                    <span class="text-start"></span>
+                    <!-- <select id="language-select" aria-label="Select Language">
+                        <option id="lang-en" value="en">English</option>
+                        <option id="lang-fr" value="fr">Français</option>
+                        <option id="lang-es" value="es">Español</option>
+                    </select> -->
+
+                    <!-- Avatar -->
+                    <!-- on le remettra a si on implemente dans settings la possibilite de change de photo de profile -->
+                    <!-- <img src="" class="rounded-circle"
+                                    height="22" alt="Avatar" loading="lazy" /> -->
+                    <!--- Settings --->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#"
+                            id="navbarDropdownMenuLink" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                            <span>📴</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <hr>
+                            <a class="dropdown-item" href="#" id="logout-link"
+                                onclick="event.preventDefault();">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Contents loaded from server is inserted here by javascript -->
+    <div id="content">
+    </div>
+
+</body>
+{% load static %}
+<script type="module" id="script_js" src="{% static 'index.js' %}" defer></script>
+<script type="module" id="script_js" src="{% static 'load_html.js' %}" defer></script>
+
+</html>

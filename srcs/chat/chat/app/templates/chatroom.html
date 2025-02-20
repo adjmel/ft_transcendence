@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<head>
+	<!-- Required meta tags -->
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<title>WoP Chat</title>
+</head>
+
+<style>
+
+* {box-sizing: border-box;}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 0px 0px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 280px;
+  height: 40px;
+  vertical-align: middle;
+}
+
+/* The popup chat - hidden by default */
+.form-popup {
+	display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+	max-width: 300px;
+	padding: 10px;
+	background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+	width: 100%;
+	padding: 5px;
+	margin: 5px 0 5px 0;
+	border: none;
+	background: #f1f1f1;
+	resize: none;
+	min-height: 20px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+	background-color: #ddd;
+	outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+	background-color: #04AA6D;
+	color: white;
+	padding: 0px 0px;
+	border: none;
+	cursor: pointer;
+	width: 70px;
+	height: 30px;
+	margin-bottom:0px;
+	opacity: 0.8;
+	vertical-align: middle;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+	opacity: 1;
+	
+}
+ 
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: #555;
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: relative;
+  top: 0px;
+  right: 0px;
+  width: 280px;
+  height: 40px;
+  vertical-align: middle;
+}
+
+.msgtime {
+	bottom: 4px;
+	color: #777;
+	font-size: 70%;
+	position: relative;
+}
+
+.options-btn{
+	bottom: 4px;
+	color: #777;
+	font-size: 100%;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	height: 0;
+	padding: 0px 0px;
+}
+</style>
+
+<body>
+	
+	<h1 id="room"></h1>
+	<button class="open-button" onclick="openForm()">Chat</button>
+	<div class="chat-popup border rounded" id="myForm" style="display: none; position: fixed; bottom: 0; right: 0;">
+		<div class="form-container">
+			<button type="button" class="btn cancel" onclick="closeForm()">Chat Name</button>
+			<br></br>
+			<div id="Msg_Area" style="height:200px; overflow:auto;">
+				
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-6">
+						<textarea id="input" class="border rounded" placeholder="Type message.." name="msg" style="overflow: hidden; resize: none; height: 30px;margin-top: 0px;"></textarea>
+					</div>
+					<div class="col-xs-6">
+						<button id="submit" class="btn">Send</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="user-hello"></div>
+	
+	{{ room_name|json_script:"room-name"}}
+	{{ request.user.username|json_script:"user_username"}}
+	<script>
+		const user_username = JSON.parse(document.getElementById('user_username').textContent);
+		const roomName = JSON.parse(document.getElementById('room-name').textContent);
+		
+		document.querySelector('#submit').onclick = function (e) {
+			const messageInputDom = document.querySelector('#input');
+			const message = messageInputDom.value;
+			const time = Date.now();
+			if (message != "")
+			{
+				console.log(message);
+				console.log(time);
+				chatSocket.send(JSON.stringify({
+					'message': message,
+					'username': user_username,
+					'timeStamp': time,
+				}));
+				messageInputDom.value = '';
+			}
+		};
+
+		
+		document.querySelector('#room').innerHTML = roomName;
+		const chatSocket = new WebSocket(
+			'ws://' +
+			window.location.host +
+			'/ws/chat/' +
+			roomName +
+			'/'
+		);
+
+		chatSocket.onmessage = function (e) {
+			console.log(e);
+			const data = e.data;
+			document.querySelector('#Msg_Area').insertAdjacentHTML( 'beforeend', data );
+			document.getElementById("Msg_Area").scrollTop = document.getElementById("Msg_Area").scrollHeight 
+		}
+
+
+		function openForm() {
+			document.getElementById("myForm").style.display = "block";
+		}
+
+		function closeForm() {
+			document.getElementById("myForm").style.display = "none";
+		}
+	</script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script>
+
+
+
+
+</body>
+

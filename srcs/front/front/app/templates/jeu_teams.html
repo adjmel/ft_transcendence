@@ -1,0 +1,60 @@
+{% load static %}
+
+
+<div id="jeu-div">
+    <link rel="stylesheet" href="{% static 'jeu.css' %}">
+    <div id="lobby" style="display: block;">
+        <div id="new">
+            <div class="jeu-rules">
+                <p class="highlight">The rules</p>
+                <p><u>Local : 2 players, 1 duel, 1 winner 🏆</u></p>
+                <p><u>Remote : enter your player name and wait for your opponent to duel 🏆</u></p>
+                <p>5 points per match</p>
+                <p class="inline-block">👤 : S ⬇️ | W ⬆️</p>
+                <p class="inline-block">👤 : L ⬇️ | P ⬆️</p>
+                <p>Good luck y'all !</p>
+                <button id="remote-game">Start Match</button>
+            </div>
+        </div>
+    </div>
+    <div id="game_result_pannel" style="display: none;">
+        <p id="text_1">The winners are </p>
+        <p id="game_winner"></p>
+        <p id="text_2">🎉 Congratulations ! 🎉</p>
+        <button id="next-btn">Next</button>
+    </div>
+    <div id="game" style="display: none;">
+        <div class="container">
+            <div class="row" style="width: 700px;">
+                <p id="announce"></p>
+            </div>
+            <div class="row" style="width: 700px;">
+                <div class="col" id="player1" style="display:none">
+                    <button type="button" class="btn bg-primary" style="height: 40px; width: 40px;" disabled>W</button>
+                    <br>
+                    <button type="button" class="btn bg-primary" style="height: 40px; width: 40px;" disabled>S</button>
+                </div>
+                <div class="col" id="player3" style="display:none">
+                    <button type="button" class="btn bg-success" style="height: 40px; width: 40px;" disabled>P</button>
+                    <br>
+                    <button type="button" class="btn bg-success" style="height: 40px; width: 40px;" disabled>L</button>
+                </div>
+                <div class="col" id="player4" style="display:none">
+                    <button type="button" class="btn bg-warning" style="height: 40px; width: 40px;" disabled>W</button>
+                    <br>
+                    <button type="button" class="btn bg-warning" style="height: 40px; width: 40px;" disabled>S</button>
+                </div>
+                <div class="col" id="player2" style="display:none">
+                    <button type="button" class="btn bg-danger" style="height: 40px; width: 40px;" disabled>P</button>
+                    <br>
+                    <button type="button" class="btn bg-danger" style="height: 40px; width: 40px;" disabled>L</button>
+                </div>
+            </div>
+            <div class="row" style="width: 700px; height: 500px;">
+                <div class="col">
+                    <canvas id="canvas" style="display: block;" width="640" height="480"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,178 @@
+version: '3.9'
+
+services:
+
+  reverse_proxy:
+    container_name: reverse_proxy
+    networks:
+      - transcendence
+    build: ./srcs/reverse_proxy
+    ports:
+      #- "8080:8080"
+      - "1050:1050"
+    depends_on:
+      - front
+      # - game_stats
+      # - user_profile
+      - 2fa
+      # - chat
+      - pong
+    restart: on-failure
+
+  front:
+    container_name: front
+    depends_on:
+      - 2fa
+    networks:
+      - transcendence
+    build: ./srcs/front
+    volumes:
+      - ./srcs/front/front:/front
+    env_file: ./env_files/.front_env
+    ports:
+      - "8000:8000"
+    restart: on-failure
+
+  2fa:
+    container_name: 2fa
+    depends_on:
+      - postgres_2fa
+    build: ./srcs/2fa
+    volumes:
+      - ./srcs/2fa/2fa:/2fa
+    networks:
+      - transcendence
+      - 2fa
+    env_file: ./env_files/.2fa_env
+    ports:
+      - "8001:8001"
+    restart: on-failure
+  
+  postgres_2fa:
+    image: postgres:16.2
+    container_name: postgres_2fa
+    networks:
+      - 2fa
+    env_file: ./env_files/.postgres_env
+    volumes:
+      - postgres_2fa:/var/lib/postgresql/data
+    expose:
+      - "5432"
+    restart: unless-stopped
+  
+  # game_stats:
+  #   container_name: game_stats
+  #   depends_on:
+  #     - postgres_game_stats
+  #   networks:
+  #     - transcendence
+  #     - game_stats
+  #   env_file: ./env_files/.game_stats_env
+  #   build: game_stats
+  #   volumes:
+  #     - ./game_stats/game_stats:/game_stats
+  #   ports:
+  #     - "8002:8002"
+  #   restart: on-failure
+
+  # chat:
+  #   container_name: chat
+  #   depends_on:
+  #     - 2fa
+  #   networks:
+  #     - transcendence
+  #   env_file: env_files/.chat_env
+  #   build: chat
+  #   volumes:
+  #     - ./chat/chat:/chat
+  #   ports:
+  #     - "8003:8003"
+  #   restart: on-failure
+
+  # postgres_game_stats:
+  #   image: postgres:16.2
+  #   container_name: postgres_game_stats
+  #   networks:
+  #     - game_stats
+  #   env_file: ./env_files/.postgres_env
+  #   volumes:
+  #     - postgres_game_stats:/var/lib/postgresql/data
+  #   expose:
+  #     - "5432"
+  #   restart: unless-stopped
+    
+  pong:
+    container_name: pong
+    networks:
+      - transcendence
+    env_file: env_files/.pong_env
+    build: ./srcs/pong
+    volumes:
+      - ./srcs/pong/pong:/pong
+    ports:
+      - "8005:8005"
+    restart: on-failure
+
+  pong_teams:
+    container_name: pong_teams
+    networks:
+      - transcendence
+    env_file: env_files/.pong_team_env
+    build: ./srcs/pong_teams
+    volumes:
+      - ./srcs/pong_teams/pong_teams:/pong_teams
+    ports:
+      - "8007:8007"
+    restart: on-failure
+
+  # postgres_user_profile:
+  #   image: postgres:16.2
+  #   container_name: postgres_user_profile
+  #   networks:
+  #     - user_profile
+  #   env_file: ./env_files/.postgres_env
+  #   volumes:
+  #     - postgres_user_profile:/var/lib/postgresql/data
+  #   expose:
+  #     - "5432"
+  #   restart: unless-stopped
+  
+  # tournament:
+  #   container_name: tournament
+  #   depends_on:
+  #     - postgres_tournament
+  #   build: tournament
+  #   volumes:
+  #     - ./tournament/tournament:/tournament
+  #   networks:
+  #     - transcendence
+  #     - tournament
+  #   env_file: ./env_files/.tournament_env
+  #   ports:
+  #     - "8006:8006"
+  #   restart: on-failure
+    
+  # postgres_tournament:
+  #   image: postgres:16.2
+  #   container_name: postgres_tournament
+  #   networks:
+  #     - tournament
+  #   env_file: ./env_files/.postgres_env
+  #   volumes:
+  #     - postgres_tournament:/var/lib/postgresql/data
+  #   expose:
+  #     - "5432"
+  #   restart: unless-stopped
+
+volumes:
+  postgres_2fa:
+  # postgres_game_stats:
+  # postgres_user_profile:
+  # postgres_tournament:
+
+networks:
+  transcendence:
+  # game_stats:
+  # user_profile:
+  2fa:
+  # tournament:

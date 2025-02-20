@@ -1,0 +1,65 @@
+.tournament {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.round, .final {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
+    position: relative;
+}
+
+.match {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #0b0b0b;
+    color: #fff;
+    position: relative; /* Added for positioning of lines */
+}
+
+button#start-next-match {
+    margin: 0 10px;
+    padding: 10px 20px;
+    max-width: 70%;
+    font-size: 1em;
+    background-color: rgb(254, 254, 254);
+    color: rgb(8, 8, 8);
+    font-size: 24px;
+    transition: background-color 0.5s;
+}
+
+button#start-next-match:hover {
+    background-color: #933b67;
+    color: white;
+}
+
+.vs {
+    font-family: "Honk", system-ui;
+    margin: 0 20px;
+    font-size: 50px;
+}
+
+#end-btn {
+    display: block;
+    margin: 0 auto; /* Centre le bouton horizontalement */
+    position: relative;
+    background-color: rgb(254, 254, 254);
+    color: rgb(8, 8, 8);
+    font-size: 30x;
+    transition: background-color 0.5s;
+}
+
+#end-btn:hover {
+    background-color: #933b67;
+    color: white;
+}

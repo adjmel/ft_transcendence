@@ -1,0 +1,11 @@
+Pour ajouter un container:
+
+1. Ajouter ses configurations dans docker-compose.
+(copier un autre container et changer son port, son nom et son volume)
+
+2. Ajouter ses configurations dans default.conf de reverse_proxy.
+
+3. Changer le script.sh de votre container pour que la commande cd aye au bon endroit et que le run server aie le bon port.
+
+4. Dans le settings.py de Django ajouter 'localhost' a la variable ALLOWED_HOSTS (ne pas oublier la virgule a la fin):
+exemple:    ALLOWED_HOSTS = ['localhost',]

@@ -1,0 +1,5 @@
+game_stats/app/__pycache__/*
+game_stats/game_stats/__pycache__/*
+game_stats/app/migrations/__pycache__/*
+game_stats/game_stats/app/__pycache__/*
+game_stats/game_stats/game_stats/__pycache__/*

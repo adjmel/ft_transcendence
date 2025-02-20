@@ -1,0 +1,3 @@
+pong/app/__pycache__/*
+pong/pong/__pycache__/*
+pong/app/migrations/__pycache__/*

@@ -1,0 +1,29 @@
+<a id="brand" class="navbar-brand" href="#" onclick="event.preventDefault();">World of Pong</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav flex-fill d-flex justify-content-center">
+        
+        <li class="nav-item">
+            <a class="nav-link" id="all_matchs_link" href="#" onclick="event.preventDefault();">Matchs</a>
+        </li>
+        {% if user.is_authenticated %}
+            <li class="nav-item ms-auto">
+                <a id="username" class="nav-link" type="submit" href="#" onclick="event.preventDefault();">{{ user.username }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="logout-link" onclick="event.preventDefault();">Logout</a>
+            </li>
+        {% else %}
+            <li class="nav-item ms-auto">
+                <a id="login" class="nav-link" type="submit" href="#">Login/Sign up</a>
+            </li>
+        {% endif %}
+        <!-- <select id="language-select" aria-label="Select Language">
+            <option id="lang-en" value="en">English</option>
+            <option id="lang-fr" value="fr">Français</option>
+            <option id="lang-es" value="es">Español</option>
+        </select> -->
+    </ul>
+</div>

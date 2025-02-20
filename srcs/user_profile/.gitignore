@@ -1,0 +1,8 @@
+user_profile/app/__pycache__/*
+user_profile/user_profile/__pycache__/*
+user_profile/app/migrations/__pycache__/*
+user_profile/core/authentication/__pycache__/*
+user_profile/media
+user_profile/user_profile/app/__pycache__/*
+user_profile/user_profile/app/migrations/*
+user_profile/user_profile/user_profile/*

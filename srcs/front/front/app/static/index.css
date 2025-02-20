@@ -1,0 +1,57 @@
+
+body
+{
+    font-family: "Nunito", sans-serif;
+    color:rgb(248, 248, 248);
+    font-size: 25px;
+}
+
+h1 
+{
+    font-family: "Honk", system-ui;
+}
+
+#brand {
+    font-size: 55px;
+}
+
+@keyframes gradientBG 
+{
+    0% {
+    background-position: 0% 50%;
+    }
+    50% {
+    background-position: 100% 50%;
+    }
+    100% {
+    background-position: 0% 50%;
+    }
+}
+
+.navbar-brand
+{
+    font-family: "Honk", system-ui;
+    font-size: 55px;
+}
+
+button 
+{
+    font-family: "Nunito", sans-serif;
+    font-size: 35px;
+    border: 0.5px solid transparent;
+    border-radius: 5px; /* Pour arrondir les coins */
+    background-color: transparent;
+    color:white;
+}
+
+/* Pour ajuster la position du menu déroulant */
+.dropdown-menu.dropdown-menu 
+{
+    right: 0;
+    left: auto;
+}
+
+.nav-link 
+{
+    font-size: 25px; 
+}
